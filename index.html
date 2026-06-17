@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E&amp;S Construction Malta | Est. 1987 | Attard</title>
+  <meta name="description" content="E&amp;S Construction — Malta's trusted builder since 1987. Based in Attard, we specialise in traditional Maltese limestone, residential, and commercial construction.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300i;1,400i&display=swap" rel="stylesheet">
+
+  <!-- AOS Animate on Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Lexend', 'sans-serif'],
+            body:    ['Source Sans 3', 'sans-serif'],
+          },
+          colors: {
+            navy:    '#0D1B2E',
+            blue:    '#1A3A6B',
+            mid:     '#2563EB',
+            sky:     '#60A5FA',
+            light:   '#DBEAFE',
+            gold:    '#F59E0B',
+            stone:   '#E8D5A0',
+          },
+          animation: {
+            'fade-up':   'fadeUp 0.8s ease forwards',
+            'fade-in':   'fadeIn 1s ease forwards',
+            'slide-in':  'slideIn 0.6s ease forwards',
+            'count':     'count 2s ease forwards',
+          },
+          keyframes: {
+            fadeUp:  { '0%': { opacity: 0, transform: 'translateY(40px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            fadeIn:  { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            slideIn: { '0%': { opacity: 0, transform: 'translateX(-30px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, body { font-family: 'Source Sans 3', sans-serif; }
+    h1,h2,h3,h4,h5 { font-family: 'Lexend', sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Hero ── */
+    .hero-bg {
+      background: linear-gradient(135deg, #0D1B2E 0%, #1A3A6B 60%, #0D1B2E 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.08) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 50%; height: 100%;
+      background: radial-gradient(ellipse at 80% 50%, rgba(37,99,235,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Typed cursor ── */
+    .typed-cursor { animation: blink 0.9s step-end infinite; }
+    @keyframes blink { 0%,100% { opacity:1 } 50% { opacity:0 } }
+
+    /* ── Hero text animation ── */
+    .hero-word { display: inline-block; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .hero-word.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Navbar ── */
+    #navbar { transition: background 0.4s ease, box-shadow 0.4s ease; }
+    #navbar.scrolled { background: rgba(13,27,46,0.98) !important; box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+
+    /* ── Project cards ── */
+    .proj-card .proj-img { transition: transform 0.5s ease; }
+    .proj-card:hover .proj-img { transform: scale(1.07); }
+    .proj-card .proj-overlay { opacity: 0; transition: opacity 0.35s ease; }
+    .proj-card:hover .proj-overlay { opacity: 1; }
+
+    /* ── Service cards ── */
+    .svc-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(37,99,235,0.2); }
+
+    /* ── Stat counter ── */
+    .stat-num { transition: all 0.1s ease; }
+
+    /* ── Gold accent bar ── */
+    .gold-bar { height: 4px; background: linear-gradient(90deg, #F59E0B, #FCD34D); border-radius: 2px; }
+
+    /* ── WhatsApp float ── */
+    .wa-float { animation: pulse-green 2s infinite; }
+    @keyframes pulse-green {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      70%      { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+    }
+
+    /* ── Testimonial card ── */
+    .testi-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(37,99,235,0.15); }
+
+    /* ── Section divider ── */
+    .wave-divider { line-height: 0; }
+
+    /* ── Image fallbacks ── */
+    .proj-img-wrap { background: #1E3A5F; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 overflow-x-hidden">
+
+<!-- ═══════════════════════════ FLOATING WHATSAPP ═══════════════════════════ -->
+<a href="https://wa.me/35699244848"
+   target="_blank" rel="noopener noreferrer"
+   class="wa-float fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-xl transition-colors duration-200 cursor-pointer"
+   aria-label="Chat on WhatsApp">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-40 bg-transparent py-1">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between py-3">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 cursor-pointer group">
+        <div class="w-11 h-11 bg-mid rounded-lg flex items-center justify-center shadow-lg group-hover:bg-sky transition-colors duration-200">
+          <span class="font-heading font-black text-white text-sm leading-none">E&amp;S</span>
+        </div>
+        <div>
+          <div class="font-heading font-bold text-white text-base leading-tight">E&amp;S Construction</div>
+          <div class="text-blue-300 text-xs">Attard, Malta · Est. 1987</div>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-7">
+        <a href="#about"        class="text-blue-200 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer">About</a>
+        <a href="#services"     class="text-blue-200 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer">Services</a>
+        <a href="#projects"     class="text-blue-200 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer">Projects</a>
+        <a href="#testimonials" class="text-blue-200 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer">Reviews</a>
+        <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+           class="bg-gold text-navy px-5 py-2.5 rounded-lg font-heading font-bold text-sm hover:bg-yellow-400 transition-colors duration-200 cursor-pointer shadow-lg">
+          Get a Quote
+        </a>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="menu-btn" class="lg:hidden p-2 cursor-pointer" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-navy/98 border-t border-blue-800">
+    <div class="px-4 py-5 flex flex-col gap-4">
+      <a href="#about"        class="text-blue-200 font-medium py-2 cursor-pointer hover:text-white transition-colors duration-200">About</a>
+      <a href="#services"     class="text-blue-200 font-medium py-2 cursor-pointer hover:text-white transition-colors duration-200">Services</a>
+      <a href="#projects"     class="text-blue-200 font-medium py-2 cursor-pointer hover:text-white transition-colors duration-200">Projects</a>
+      <a href="#testimonials" class="text-blue-200 font-medium py-2 cursor-pointer hover:text-white transition-colors duration-200">Reviews</a>
+      <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+         class="bg-gold text-navy px-5 py-3 rounded-lg font-heading font-bold text-center cursor-pointer hover:bg-yellow-400 transition-colors duration-200">
+        Get a Quote
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full relative z-10">
+    <div class="max-w-4xl">
+
+      <!-- Tag line -->
+      <div class="flex items-center gap-3 mb-6" data-aos="fade-right" data-aos-delay="100">
+        <div class="gold-bar w-10"></div>
+        <span class="text-gold font-heading font-semibold text-xs tracking-widest uppercase">Attard, Malta · Est. 1987</span>
+      </div>
+
+      <!-- Main heading with word-by-word animation -->
+      <h1 class="font-heading font-black text-white mb-6 leading-none" style="font-size:clamp(2.5rem,7vw,5rem);letter-spacing:-0.02em">
+        <span id="hero-line1"></span><br>
+        <span id="hero-line2" class="text-sky"></span>
+      </h1>
+
+      <p class="text-blue-200 text-lg leading-relaxed mb-10 max-w-2xl" data-aos="fade-up" data-aos-delay="600">
+        For over 35 years, E&amp;S Construction has been crafting homes, apartments, and heritage limestone buildings across Malta. Traditional craftsmanship meets modern precision — built to last generations.
+      </p>
+
+      <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="800">
+        <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-7 py-4 rounded-xl font-heading font-bold text-base transition-all duration-200 cursor-pointer shadow-xl hover:shadow-green-500/30 hover:-translate-y-0.5">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+        <a href="#projects"
+           class="border-2 border-sky/40 text-white hover:border-sky hover:bg-sky/10 px-7 py-4 rounded-xl font-heading font-bold text-base transition-all duration-200 cursor-pointer">
+          View Our Work
+        </a>
+      </div>
+
+      <!-- Hero stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16" data-aos="fade-up" data-aos-delay="1000">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 text-center">
+          <div class="font-heading font-black text-4xl text-white mb-1" data-target="1987" id="stat-year">1987</div>
+          <div class="text-blue-300 text-xs font-medium">Year Founded</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 text-center">
+          <div class="font-heading font-black text-4xl text-gold mb-1"><span class="stat-count" data-target="400">0</span>+</div>
+          <div class="text-blue-300 text-xs font-medium">Projects Built</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 text-center">
+          <div class="font-heading font-black text-4xl text-white mb-1"><span class="stat-count" data-target="35">0</span>+</div>
+          <div class="text-blue-300 text-xs font-medium">Years Experience</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 text-center">
+          <div class="font-heading font-black text-4xl text-gold mb-1"><span class="stat-count" data-target="100">0</span>%</div>
+          <div class="text-blue-300 text-xs font-medium">Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave bottom -->
+  <div class="wave-divider absolute bottom-0 left-0 right-0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none" class="w-full h-16 block">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Visual side -->
+      <div class="relative" data-aos="fade-right">
+        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-navy shadow-2xl">
+          <!-- Blueprint grid texture -->
+          <div class="absolute inset-0" style="background-image:linear-gradient(rgba(96,165,250,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(96,165,250,0.06) 1px,transparent 1px);background-size:40px 40px;"></div>
+          <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-10">
+            <div class="w-28 h-28 rounded-full bg-mid/20 flex items-center justify-center mb-5 border-2 border-mid/30">
+              <div class="w-20 h-20 rounded-full bg-mid flex items-center justify-center">
+                <span class="font-heading font-black text-white text-2xl">E&amp;S</span>
+              </div>
+            </div>
+            <div class="font-heading font-bold text-white text-2xl mb-1">Since 1987</div>
+            <div class="text-blue-300 text-sm mb-6">Attard, Malta</div>
+            <!-- Decorative rings -->
+            <div class="absolute inset-8 border border-mid/10 rounded-2xl pointer-events-none"></div>
+            <div class="absolute inset-16 border border-mid/05 rounded-2xl pointer-events-none"></div>
+          </div>
+        </div>
+        <!-- Gold corner accent -->
+        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-gold rounded-2xl -z-10"></div>
+        <div class="absolute -top-4 -left-4 w-16 h-16 bg-light rounded-2xl -z-10"></div>
+      </div>
+
+      <!-- Text side -->
+      <div data-aos="fade-left">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="gold-bar w-10"></div>
+          <span class="text-mid font-heading font-semibold text-xs tracking-widest uppercase">Our Story</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-heading font-black text-navy mb-6" style="letter-spacing:-0.02em">
+          Malta's Trusted Builder for Over 35 Years
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed mb-5">
+          Founded in 1987 and based in Attard, E&amp;S Construction has grown from a family-run building firm into one of Malta's most respected construction companies. We take pride in every project — from a modest extension to a full multi-storey development.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-8 text-sm">
+          Our expertise spans both modern residential and commercial construction, and traditional Maltese limestone craftsmanship — the hand-cut arches, ornate cornices, and gallarija that define Malta's architectural heritage. Every build carries the same commitment: quality that stands for generations.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-mid" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <div class="font-heading font-semibold text-navy text-sm">Quality Guaranteed</div>
+              <div class="text-gray-500 text-xs mt-0.5">No shortcuts, ever</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-mid" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <div class="font-heading font-semibold text-navy text-sm">On Time Delivery</div>
+              <div class="text-gray-500 text-xs mt-0.5">We respect timelines</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-mid" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <div class="font-heading font-semibold text-navy text-sm">Fair & Transparent</div>
+              <div class="text-gray-500 text-xs mt-0.5">No hidden costs</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-mid" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <div class="font-heading font-semibold text-navy text-sm">Licensed in Malta</div>
+              <div class="text-gray-500 text-xs mt-0.5">Fully compliant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ SERVICES ═══════════════════════════ -->
+<section id="services" class="py-24 bg-light/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="gold-bar w-10"></div>
+        <span class="text-mid font-heading font-semibold text-xs tracking-widest uppercase">What We Build</span>
+        <div class="gold-bar w-10"></div>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-heading font-black text-navy" style="letter-spacing:-0.02em">Our Services</h2>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto text-sm">From foundations to finishing, we handle every stage of your construction project with the same dedication and skill.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm cursor-default group" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-14 h-14 bg-light rounded-xl flex items-center justify-center mb-6 group-hover:bg-mid transition-colors duration-300">
+          <svg class="w-7 h-7 text-mid group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-navy mb-3">Residential Homes</h3>
+        <p class="text-gray-500 leading-relaxed text-sm">Villas, townhouses, and bungalows built to your exact specifications. We manage everything from permits to the finishing coat.</p>
+      </article>
+
+      <article class="svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm cursor-default group" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-14 h-14 bg-light rounded-xl flex items-center justify-center mb-6 group-hover:bg-mid transition-colors duration-300">
+          <svg class="w-7 h-7 text-mid group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-navy mb-3">Apartment Blocks</h3>
+        <p class="text-gray-500 leading-relaxed text-sm">Multi-storey residential developments designed to maximise space and value, with high-quality finishes throughout.</p>
+      </article>
+
+      <article class="svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm cursor-default group" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-14 h-14 bg-light rounded-xl flex items-center justify-center mb-6 group-hover:bg-mid transition-colors duration-300">
+          <svg class="w-7 h-7 text-mid group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-navy mb-3">Traditional Limestone</h3>
+        <p class="text-gray-500 leading-relaxed text-sm">Hand-crafted Maltese limestone masonry — arches, cornices, gallarija, and ornate facades that honour Malta's architectural heritage.</p>
+      </article>
+
+      <article class="svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm cursor-default group" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-14 h-14 bg-light rounded-xl flex items-center justify-center mb-6 group-hover:bg-mid transition-colors duration-300">
+          <svg class="w-7 h-7 text-mid group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-navy mb-3">Renovations</h3>
+        <p class="text-gray-500 leading-relaxed text-sm">Full property renovations, extensions, and structural alterations. We restore old character while bringing modern comfort.</p>
+      </article>
+
+      <article class="svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm cursor-default group" data-aos="fade-up" data-aos-delay="400">
+        <div class="w-14 h-14 bg-light rounded-xl flex items-center justify-center mb-6 group-hover:bg-mid transition-colors duration-300">
+          <svg class="w-7 h-7 text-mid group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-navy mb-3">Commercial Buildings</h3>
+        <p class="text-gray-500 leading-relaxed text-sm">Offices, retail spaces, warehouses, and mixed-use developments built to last with full project management included.</p>
+      </article>
+
+      <!-- Dark card CTA -->
+      <article class="svc-card bg-navy rounded-2xl p-8 cursor-default" data-aos="fade-up" data-aos-delay="500">
+        <div class="w-14 h-14 bg-mid/20 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-white mb-3">Have a Project in Mind?</h3>
+        <p class="text-blue-300 leading-relaxed text-sm mb-6">Tell us what you're planning and we'll give you a free, no-obligation quote.</p>
+        <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 bg-gold text-navy px-5 py-3 rounded-lg font-heading font-bold text-sm hover:bg-yellow-400 transition-colors duration-200 cursor-pointer">
+          WhatsApp Us
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PROJECTS ═══════════════════════════ -->
+<section id="projects" class="py-24 bg-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6" data-aos="fade-up">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="gold-bar w-10"></div>
+          <span class="text-gold font-heading font-semibold text-xs tracking-widest uppercase">Our Portfolio</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-heading font-black text-white" style="letter-spacing:-0.02em">Our Projects</h2>
+        <p class="text-blue-300 text-sm mt-2">A selection of our work across Malta</p>
+      </div>
+      <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+         class="text-gold font-heading font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all duration-200 cursor-pointer whitespace-nowrap">
+        Discuss your project
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Project 1 -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group" style="aspect-ratio:4/3" data-aos="zoom-in" data-aos-delay="0">
+        <div class="proj-img-wrap absolute inset-0 bg-slate-700">
+          <img src="images/project1.jpg" alt="Modern residential block under construction, Malta" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/60 to-transparent flex flex-col justify-end p-6">
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Residential</span>
+          <h3 class="font-heading font-bold text-white text-lg">Modern Residential Block</h3>
+          <p class="text-blue-200 text-xs mt-1">Multi-storey construction, Malta</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <h3 class="font-heading font-bold text-white text-sm">Modern Residential Block</h3>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group" style="aspect-ratio:4/3" data-aos="zoom-in" data-aos-delay="80">
+        <div class="proj-img-wrap absolute inset-0 bg-amber-800/40">
+          <img src="images/project2.jpg" alt="Completed apartment block, Malta" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/60 to-transparent flex flex-col justify-end p-6">
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Residential</span>
+          <h3 class="font-heading font-bold text-white text-lg">Contemporary Apartment Block</h3>
+          <p class="text-blue-200 text-xs mt-1">5-storey development, Malta</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <h3 class="font-heading font-bold text-white text-sm">Contemporary Apartment Block</h3>
+        </div>
+      </article>
+
+      <!-- Project 3 — tall featured -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group sm:row-span-2" data-aos="zoom-in" data-aos-delay="160">
+        <div class="proj-img-wrap absolute inset-0 bg-yellow-800/30" style="min-height:100%">
+          <img src="images/project3.jpg" alt="Traditional Maltese villa with blue gallarija" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/50 to-transparent flex flex-col justify-end p-6">
+          <span class="inline-block bg-gold text-navy text-xs font-bold px-2 py-0.5 rounded mb-2">Signature Work</span>
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Heritage</span>
+          <h3 class="font-heading font-bold text-white text-xl">Traditional Maltese Villa</h3>
+          <p class="text-blue-200 text-xs mt-1">Limestone build with authentic gallarija</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <span class="bg-gold text-navy text-xs font-bold px-2 py-0.5 rounded block w-fit mb-1">Signature Work</span>
+          <h3 class="font-heading font-bold text-white text-sm">Traditional Maltese Villa</h3>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group" style="aspect-ratio:4/3" data-aos="zoom-in" data-aos-delay="240">
+        <div class="proj-img-wrap absolute inset-0 bg-gray-500/40">
+          <img src="images/project4.jpg" alt="Modern townhouses with blue doors and iron railings" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/60 to-transparent flex flex-col justify-end p-6">
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Residential</span>
+          <h3 class="font-heading font-bold text-white text-lg">Modern Townhouse Development</h3>
+          <p class="text-blue-200 text-xs mt-1">With ornate iron balconies, Malta</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <h3 class="font-heading font-bold text-white text-sm">Modern Townhouse Development</h3>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group" style="aspect-ratio:4/3" data-aos="zoom-in" data-aos-delay="320">
+        <div class="proj-img-wrap absolute inset-0 bg-yellow-700/30">
+          <img src="images/project5.jpg" alt="Limestone residence with arched garage" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/60 to-transparent flex flex-col justify-end p-6">
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Heritage</span>
+          <h3 class="font-heading font-bold text-white text-lg">Heritage Stone Residence</h3>
+          <p class="text-blue-200 text-xs mt-1">Traditional limestone, Malta</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <h3 class="font-heading font-bold text-white text-sm">Heritage Stone Residence</h3>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group" style="aspect-ratio:4/3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="proj-img-wrap absolute inset-0 bg-yellow-600/30">
+          <img src="images/project6.jpg" alt="Ornate limestone building with decorative cornices" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/60 to-transparent flex flex-col justify-end p-6">
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Heritage</span>
+          <h3 class="font-heading font-bold text-white text-lg">Ornate Limestone Facade</h3>
+          <p class="text-blue-200 text-xs mt-1">Decorative cornices &amp; arches, Malta</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <h3 class="font-heading font-bold text-white text-sm">Ornate Limestone Facade</h3>
+        </div>
+      </article>
+
+      <!-- Project 7 -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group" style="aspect-ratio:4/3" data-aos="zoom-in" data-aos-delay="480">
+        <div class="proj-img-wrap absolute inset-0 bg-amber-700/40">
+          <img src="images/project7.jpg" alt="Traditional Maltese stone arch vault close-up" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/60 to-transparent flex flex-col justify-end p-6">
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Craftsmanship</span>
+          <h3 class="font-heading font-bold text-white text-lg">Stone Arch &amp; Vault Work</h3>
+          <p class="text-blue-200 text-xs mt-1">Hand-crafted limestone masonry</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <h3 class="font-heading font-bold text-white text-sm">Stone Arch &amp; Vault Work</h3>
+        </div>
+      </article>
+
+      <!-- Project 8 -->
+      <article class="proj-card relative rounded-2xl overflow-hidden cursor-pointer group" style="aspect-ratio:4/3" data-aos="zoom-in" data-aos-delay="560">
+        <div class="proj-img-wrap absolute inset-0 bg-blue-800/30">
+          <img src="images/project8.jpg" alt="Completed limestone row houses with blue gallarija, Malta" class="proj-img w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-overlay absolute inset-0 bg-gradient-to-t from-navy/95 via-mid/60 to-transparent flex flex-col justify-end p-6">
+          <span class="inline-block bg-gold text-navy text-xs font-bold px-2 py-0.5 rounded mb-2">Featured</span>
+          <span class="text-sky text-xs font-semibold uppercase tracking-wider mb-1">Heritage</span>
+          <h3 class="font-heading font-bold text-white text-lg">Traditional Row Houses</h3>
+          <p class="text-blue-200 text-xs mt-1">Completed limestone &amp; gallarija, Malta</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <h3 class="font-heading font-bold text-white text-sm">Traditional Row Houses</h3>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ TESTIMONIALS ═══════════════════════════ -->
+<section id="testimonials" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="gold-bar w-10"></div>
+        <span class="text-mid font-heading font-semibold text-xs tracking-widest uppercase">Client Reviews</span>
+        <div class="gold-bar w-10"></div>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-heading font-black text-navy" style="letter-spacing:-0.02em">What Our Clients Say</h2>
+      <p class="text-gray-500 mt-4 text-sm">Real feedback from real Maltese homeowners and developers</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Testimonial 1 -->
+      <article class="testi-card bg-light/50 rounded-2xl p-8 border border-blue-100" data-aos="fade-up" data-aos-delay="0">
+        <div class="flex gap-1 mb-5" aria-label="5 stars">
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 leading-relaxed mb-6 italic text-sm">
+          "E&amp;S Construction built our family home in Mosta from scratch. The quality of the limestone work is incredible — you can see the pride they take in every block. On time, on budget, and truly professional throughout."
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-mid rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-heading font-bold text-xs" aria-hidden="true">MB</span>
+          </div>
+          <div>
+            <div class="font-heading font-semibold text-navy text-sm">Mario Borg</div>
+            <div class="text-gray-400 text-xs">Homeowner, Mosta</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonial 2 — featured dark -->
+      <article class="testi-card bg-navy rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex gap-1 mb-5" aria-label="5 stars">
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <blockquote class="text-blue-200 leading-relaxed mb-6 italic">
+          "We commissioned E&amp;S to build our apartment block in Naxxar. Their attention to detail is second to none. The traditional limestone cornices and arches they crafted are simply beautiful. I wouldn't go anywhere else."
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-mid rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-heading font-bold text-xs" aria-hidden="true">CV</span>
+          </div>
+          <div>
+            <div class="font-heading font-semibold text-white text-sm">Carmela Vella</div>
+            <div class="text-blue-400 text-xs">Property Developer, Naxxar</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonial 3 -->
+      <article class="testi-card bg-light/50 rounded-2xl p-8 border border-blue-100" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex gap-1 mb-5" aria-label="5 stars">
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 leading-relaxed mb-6 italic text-sm">
+          "Hired E&amp;S to renovate our old house in Żebbuġ. They transformed it completely while keeping the original Maltese character. Joseph and his team are true masters of the trade. Highly recommended!"
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-heading font-bold text-xs" aria-hidden="true">JF</span>
+          </div>
+          <div>
+            <div class="font-heading font-semibold text-navy text-sm">Joseph Farrugia</div>
+            <div class="text-gray-400 text-xs">Homeowner, Żebbuġ</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonial 4 -->
+      <article class="testi-card bg-light/50 rounded-2xl p-8 border border-blue-100" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex gap-1 mb-5" aria-label="5 stars">
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 leading-relaxed mb-6 italic text-sm">
+          "We had E&amp;S build our townhouse in Attard. From the first meeting to the day we got our keys, everything was smooth and stress-free. The finish is impeccable. Thank you for making our dream a reality!"
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-mid rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-heading font-bold text-xs" aria-hidden="true">CG</span>
+          </div>
+          <div>
+            <div class="font-heading font-semibold text-navy text-sm">Charmaine Galea</div>
+            <div class="text-gray-400 text-xs">Homeowner, Attard</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonial 5 -->
+      <article class="testi-card bg-light/50 rounded-2xl p-8 border border-blue-100 md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="400">
+        <div class="flex gap-1 mb-5" aria-label="5 stars">
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <blockquote class="text-gray-700 leading-relaxed mb-6 italic text-sm">
+          "E&amp;S Construction restored our old Lija farmhouse, including a stunning stone arch that they rebuilt by hand. The craftsmanship is extraordinary — a rare skill in Malta today. Genuinely impressed."
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-heading font-bold text-xs" aria-hidden="true">AM</span>
+          </div>
+          <div>
+            <div class="font-heading font-semibold text-navy text-sm">Anthony Mifsud</div>
+            <div class="text-gray-400 text-xs">Property Owner, Lija</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+<section class="py-20 bg-mid relative overflow-hidden">
+  <div class="absolute inset-0" style="background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8" data-aos="fade-up">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading font-black text-white mb-2">Ready to build your dream?</h2>
+        <p class="text-blue-200 text-sm">Contact us today for a free, no-obligation quote. We're based in Attard and serve all of Malta.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 flex-shrink-0">
+        <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-7 py-4 rounded-xl font-heading font-bold text-sm transition-all duration-200 cursor-pointer shadow-lg">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Now
+        </a>
+        <a href="mailto:engelbertdmch@yahoo.com"
+           class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-7 py-4 rounded-xl font-heading font-bold text-sm transition-all duration-200 cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Send Email
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="gold-bar w-10"></div>
+        <span class="text-mid font-heading font-semibold text-xs tracking-widest uppercase">Get In Touch</span>
+        <div class="gold-bar w-10"></div>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-heading font-black text-navy" style="letter-spacing:-0.02em">Contact Us</h2>
+      <p class="text-gray-500 mt-3 text-sm">We're always happy to discuss your project. Reach out via WhatsApp or email.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
+      <!-- WhatsApp card -->
+      <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+         class="group bg-green-50 hover:bg-green-500 rounded-2xl p-8 border border-green-100 text-center transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1"
+         data-aos="fade-up" data-aos-delay="0">
+        <div class="w-16 h-16 bg-green-500 group-hover:bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors duration-300">
+          <svg class="w-8 h-8 text-white group-hover:text-green-500 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-gray-800 group-hover:text-white text-lg mb-2 transition-colors duration-300">WhatsApp</h3>
+        <p class="text-gray-500 group-hover:text-green-100 text-sm mb-3 transition-colors duration-300">Chat with us directly</p>
+        <span class="font-heading font-semibold text-green-600 group-hover:text-white text-sm transition-colors duration-300">+356 9924 4848</span>
+      </a>
+
+      <!-- Email card -->
+      <a href="mailto:engelbertdmch@yahoo.com"
+         class="group bg-blue-50 hover:bg-mid rounded-2xl p-8 border border-blue-100 text-center transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1"
+         data-aos="fade-up" data-aos-delay="100">
+        <div class="w-16 h-16 bg-mid group-hover:bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors duration-300">
+          <svg class="w-8 h-8 text-white group-hover:text-mid transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-gray-800 group-hover:text-white text-lg mb-2 transition-colors duration-300">Email</h3>
+        <p class="text-gray-500 group-hover:text-blue-200 text-sm mb-3 transition-colors duration-300">Send us a message</p>
+        <span class="font-heading font-semibold text-mid group-hover:text-white text-xs transition-colors duration-300 break-all">engelbertdmch@yahoo.com</span>
+      </a>
+
+      <!-- Location card -->
+      <div class="bg-light/60 rounded-2xl p-8 border border-blue-100 text-center shadow-sm"
+           data-aos="fade-up" data-aos-delay="200">
+        <div class="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <svg class="w-8 h-8 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-navy text-lg mb-2">Location</h3>
+        <p class="text-gray-500 text-sm mb-1">Attard, Malta</p>
+        <p class="text-gray-400 text-xs">Serving all of Malta</p>
+        <div class="mt-4 text-xs text-gray-400">
+          <div>Mon–Fri: 7:00 – 17:00</div>
+          <div>Sat: 7:00 – 13:00</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="bg-navy border-t border-blue-900/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-mid rounded-lg flex items-center justify-center flex-shrink-0">
+            <span class="font-heading font-black text-white text-sm">E&amp;S</span>
+          </div>
+          <div>
+            <div class="font-heading font-bold text-white text-sm">E&amp;S Construction</div>
+            <div class="text-blue-400 text-xs">Attard, Malta · Est. 1987</div>
+          </div>
+        </div>
+        <p class="text-blue-400 text-sm leading-relaxed max-w-xs">
+          Building Malta's homes, heritage, and future since 1987. Traditional craftsmanship and modern construction under one roof.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-heading font-bold text-white text-sm mb-5">Quick Links</h4>
+        <ul class="space-y-3">
+          <li><a href="#about"        class="text-blue-400 text-sm hover:text-sky transition-colors duration-200 cursor-pointer">About Us</a></li>
+          <li><a href="#services"     class="text-blue-400 text-sm hover:text-sky transition-colors duration-200 cursor-pointer">Services</a></li>
+          <li><a href="#projects"     class="text-blue-400 text-sm hover:text-sky transition-colors duration-200 cursor-pointer">Projects</a></li>
+          <li><a href="#testimonials" class="text-blue-400 text-sm hover:text-sky transition-colors duration-200 cursor-pointer">Reviews</a></li>
+          <li><a href="#contact"      class="text-blue-400 text-sm hover:text-sky transition-colors duration-200 cursor-pointer">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-heading font-bold text-white text-sm mb-5">Contact</h4>
+        <div class="space-y-3">
+          <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-3 text-blue-400 text-sm hover:text-green-400 transition-colors duration-200 cursor-pointer">
+            <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            +356 9924 4848
+          </a>
+          <a href="mailto:engelbertdmch@yahoo.com"
+             class="flex items-center gap-3 text-blue-400 text-sm hover:text-sky transition-colors duration-200 cursor-pointer break-all">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            engelbertdmch@yahoo.com
+          </a>
+          <div class="flex items-center gap-3 text-blue-400 text-sm">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Attard, Malta
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-blue-900/50 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-blue-600 text-xs">&copy; 2024 E&amp;S Construction. All rights reserved.</p>
+      <p class="text-blue-700 text-xs">Est. 1987 · Attard, Malta</p>
+    </div>
+  </div>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  // ── Navbar ──
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── Mobile menu ──
+  const menuBtn  = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose= document.getElementById('menu-icon-close');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // ── Hero word-by-word animation ──
+  const line1Words = ['Building', 'Malta\'s', 'Future'];
+  const line2Words = ['Since', '1987.'];
+  let wordDelay = 200;
+
+  function animateWords(el, words, baseDelay) {
+    words.forEach((w, i) => {
+      const span = document.createElement('span');
+      span.className = 'hero-word';
+      span.textContent = w + ' ';
+      el.appendChild(span);
+      setTimeout(() => span.classList.add('visible'), baseDelay + i * 150);
+    });
+  }
+  animateWords(document.getElementById('hero-line1'), line1Words, wordDelay);
+  animateWords(document.getElementById('hero-line2'), line2Words, wordDelay + line1Words.length * 150);
+
+  // ── Stat counter ──
+  function animateCount(el, target, duration) {
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = p < 0.5 ? 2*p*p : -1+(4-2*p)*p;
+      el.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  const counters = document.querySelectorAll('.stat-count');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target, parseInt(e.target.dataset.target, 10), 1800);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => obs.observe(c));
+
+  // ── Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
