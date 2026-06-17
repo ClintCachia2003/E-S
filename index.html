@@ -161,7 +161,7 @@
         <a href="#services"     class="text-blue-200 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer">Services</a>
         <a href="#projects"     class="text-blue-200 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer">Projects</a>
         <a href="#testimonials" class="text-blue-200 hover:text-white transition-colors duration-200 font-medium text-sm cursor-pointer">Reviews</a>
-        <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+        <a href="#get-quote"
            class="bg-gold text-navy px-5 py-2.5 rounded-lg font-heading font-bold text-sm hover:bg-yellow-400 transition-colors duration-200 cursor-pointer shadow-lg">
           Get a Quote
         </a>
@@ -186,7 +186,7 @@
       <a href="#services"     class="text-blue-200 font-medium py-2 cursor-pointer hover:text-white transition-colors duration-200">Services</a>
       <a href="#projects"     class="text-blue-200 font-medium py-2 cursor-pointer hover:text-white transition-colors duration-200">Projects</a>
       <a href="#testimonials" class="text-blue-200 font-medium py-2 cursor-pointer hover:text-white transition-colors duration-200">Reviews</a>
-      <a href="https://wa.me/35699244848" target="_blank" rel="noopener noreferrer"
+      <a href="#get-quote"
          class="bg-gold text-navy px-5 py-3 rounded-lg font-heading font-bold text-center cursor-pointer hover:bg-yellow-400 transition-colors duration-200">
         Get a Quote
       </a>
@@ -775,6 +775,77 @@
           <div>Mon–Fri: 7:00 – 17:00</div>
           <div>Sat: 7:00 – 13:00</div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ GET A QUOTE FORM ═══════════════════════════ -->
+<section id="get-quote" class="py-24 bg-light/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="gold-bar w-10"></div>
+        <span class="text-mid font-heading font-semibold text-xs tracking-widest uppercase">Free Quote</span>
+        <div class="gold-bar w-10"></div>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-heading font-black text-navy" style="letter-spacing:-0.02em">Request a Free Quote</h2>
+      <p class="text-gray-500 mt-3 text-sm max-w-md mx-auto">Fill in your details and we'll get back to you as soon as possible.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+      <!-- Form -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100" data-aos="fade-right">
+        <form action="https://formsubmit.co/engelbertdmch@yahoo.com" method="POST" class="space-y-5">
+          <input type="hidden" name="_subject" value="New Quote Request — E&S Construction">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <div>
+            <label for="name" class="block text-sm font-heading font-semibold text-navy mb-1.5">Name &amp; Surname <span class="text-red-500">*</span></label>
+            <input type="text" id="name" name="name" required placeholder="e.g. Mario Borg"
+              class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-mid transition-all duration-200">
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-heading font-semibold text-navy mb-1.5">Contact Number <span class="text-red-500">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="e.g. +356 9999 9999"
+              class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-mid transition-all duration-200">
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-heading font-semibold text-navy mb-1.5">Email Address <span class="text-red-500">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="e.g. yourname@email.com"
+              class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-mid transition-all duration-200">
+          </div>
+
+          <div>
+            <label for="description" class="block text-sm font-heading font-semibold text-navy mb-1.5">Project Description <span class="text-red-500">*</span></label>
+            <textarea id="description" name="description" required rows="5"
+              placeholder="Describe your project — type of work, location, approximate size, timeline, etc."
+              class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-mid transition-all duration-200 resize-none"></textarea>
+          </div>
+
+          <button type="submit"
+            class="w-full bg-mid hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-heading font-bold text-sm transition-all duration-200 shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            Send Quote Request
+          </button>
+
+          <p class="text-gray-400 text-xs text-center">We aim to respond within 24 hours. Required fields marked <span class="text-red-400">*</span></p>
+        </form>
+      </div>
+
+      <!-- Google Maps -->
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100" style="min-height:500px;" data-aos="fade-left">
+        <iframe
+          src="https://maps.google.com/maps?q=Attard,Malta&z=14&output=embed"
+          width="100%" height="500" style="border:0; display:block;"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="E&S Construction location — Attard, Malta">
+        </iframe>
       </div>
 
     </div>
