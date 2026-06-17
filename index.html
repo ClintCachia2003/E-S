@@ -26,7 +26,7 @@
           },
           colors: {
             navy:    '#0D1B2E',
-            blue:    '#1A3A6B',
+            cobalt:  '#1A3A6B',
             mid:     '#2563EB',
             sky:     '#60A5FA',
             light:   '#DBEAFE',
@@ -83,6 +83,7 @@
     /* ── Hero text animation ── */
     .hero-word { display: inline-block; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .hero-word.visible { opacity: 1; transform: translateY(0); }
+    #hero-line1, #hero-line2 { display: flex; flex-wrap: wrap; gap: 0 0.3em; }
 
     /* ── Navbar ── */
     #navbar { transition: background 0.4s ease, box-shadow 0.4s ease; }
@@ -210,7 +211,7 @@
         <span id="hero-line2" class="text-sky"></span>
       </h1>
 
-      <p class="text-blue-200 text-lg leading-relaxed mb-10 max-w-2xl" data-aos="fade-up" data-aos-delay="600">
+      <p class="text-gray-100 text-lg leading-relaxed mb-10 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
         For over 35 years, E&amp;S Construction has been crafting homes, apartments, and heritage limestone buildings across Malta. Traditional craftsmanship meets modern precision — built to last generations.
       </p>
 
@@ -897,7 +898,7 @@
     words.forEach((w, i) => {
       const span = document.createElement('span');
       span.className = 'hero-word';
-      span.textContent = w + ' ';
+      span.textContent = w;
       el.appendChild(span);
       setTimeout(() => span.classList.add('visible'), baseDelay + i * 150);
     });
